@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -20,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }
   };
+
   User.init({
     email: {
       type: DataTypes.STRING,
@@ -41,10 +43,19 @@ module.exports = (sequelize, DataTypes) => {
     latlon: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    salt: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    refreshToken: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'User'
   });
+  
   return User;
 };
