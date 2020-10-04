@@ -1,0 +1,19 @@
+<html style='width:500px; height:500px;'>
+    <head></head>
+    <body>
+        <a id="github" href="">
+            github login
+        </a>
+        
+        <script>
+            const github = document.querySelector('#github');
+          
+            github.href = 'https://github.com/login/oauth/authorize?' + new URLSearchParams({
+               client_id: '5a8c8d1b3c74cb6dbd87',
+               redirect_uri: 'http://localhost:4000/user/github/callback',
+               scope:'user:email',
+            });
+
+        </script>
+    </body>
+</html>

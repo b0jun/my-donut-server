@@ -1,2 +1,2 @@
-exports.user = require('./user');
-//exports.activity = require('./activity');
+exports.user = require("./user");
+exports.activity = require("./activity");

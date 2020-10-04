@@ -1,2 +1,2 @@
-exports.userRouter = require('./user');
-//exports.activityRouter = require('/activity');
+exports.userRouter = require("./user");
+exports.activityRouter = require("./activity");

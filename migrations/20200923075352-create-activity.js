@@ -1,59 +1,64 @@
-'use strict';
+"use strict";
+
+const { sequelize } = require("../models");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Activities', {
+    await queryInterface.createTable("Activities", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       ownerId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false,
       },
       intro: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       participationCriteria: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       rule: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
+
       numberOfPeople: {
         type: Sequelize.INTEGER,
-        allowNull:false
+        allowNull: false,
+        defaultValue: 0,
       },
       location: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
 
-    await queryInterface.addConstraint('Activities', {
-      fields: ['ownerId'],
+    await queryInterface.addConstraint("Activities", {
+      fields: ["ownerId"],
       type: "foreign key",
       references: {
-        table: 'Users',
-        field: 'id' 
+        table: "Users",
+        field: "id",
       },
-      onDelete: 'cascade',
-      onUpdate: 'cascade'
-    })
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Activities');
-  }
+    await queryInterface.dropTable("Activities");
+  },
 };

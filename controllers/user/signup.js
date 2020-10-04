@@ -3,13 +3,8 @@ const { setPassword } = require(__base + '/lib/auth');
  
 module.exports = async (req, res) => {
 
-    const { email, password, passwordConfirm, username, address, latlon } = req.body;
+    const { email, password, username, latlon } = req.body;
     console.log('body: ', req.body);
-    if(password !== passwordConfirm){
-        return res.status(400).json({
-            message:'Passwords are not identical'
-        });
-    }
     
     const [hashedPassword, salt] = setPassword(password);
     console.log('hashed: ', salt);
@@ -21,7 +16,6 @@ module.exports = async (req, res) => {
         defaults: {
             password: hashedPassword,
             username,
-            address,
             latlon,
             salt
         }

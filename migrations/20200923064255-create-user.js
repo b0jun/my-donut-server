@@ -10,28 +10,24 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        allowNull:false,
+        allowNull:true,
         unique:true
       },
       password: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull:true
       },
       username: {
         type: Sequelize.STRING,
         allowNull:false
       },
-      address: {
-        type: Sequelize.STRING,
-        allowNull:false
-      },
       latlon: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull:true
       },
       salt: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       createdAt: {
         allowNull: false,

@@ -92,5 +92,8 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
     await queryInterface.dropTable('UserSkills');
+    await queryInterface.dropTable('ActivityParticipants');
+    await queryInterface.dropTable('ActivitySkills');
+
   }
 };

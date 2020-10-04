@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
         });
     }
     
-    if(!checkPassword(user, password)){
+    if(!checkPassword(user, password.trim())){
         return res.status(400).json({
             message: 'Password incorrect'
         });
@@ -40,6 +40,8 @@ module.exports = async (req, res) => {
     res.cookie('refreshToken', refreshToken, {
         httpOnly:true
     });
+    res.cookie('authType', 'jwt');
+    
     res.status(200).json({
         accessToken,
         username,

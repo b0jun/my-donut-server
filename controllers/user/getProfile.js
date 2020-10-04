@@ -11,6 +11,6 @@ module.exports = async (req, res) => {
             message: "Invalid account"
         });
     }
-
+    console.log('user: ', user);
     res.status(200).json(getNeededUserInfo(user.dataValues));
 };
